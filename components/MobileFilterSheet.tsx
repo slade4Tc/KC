@@ -62,7 +62,7 @@ export function MobileFilterSheet({ open, categories, grades, value, onClose, on
               </select>
               <select value={draft.sort} onChange={(e) => set('sort', e.target.value as FilterState['sort'])} className="w-full rounded-xl border border-white/10 bg-[#161616] px-3 py-2 text-sm">
                 <option value="newest">Newest</option>
-                <option value="title-asc">Title</option>
+                <option value="title-asc">Title A-Z</option>
               </select>
             </div>
             <div className="mt-5 flex gap-2">

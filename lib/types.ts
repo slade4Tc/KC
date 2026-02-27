@@ -1,6 +1,6 @@
 export type CardStatus = 'available' | 'sold';
 
-export type CardCategory = 'f1' | 'soccer' | 'baseball' | 'entertainment' | 'basketball' | 'showcase';
+export type CardCategory = 'pokemon' | 'soccer' | 'nfl' | 'one-piece' | 'misc-sports' | 'marvel';
 
 export interface Card {
   id: string;
@@ -8,13 +8,14 @@ export interface Card {
   name: string;
   subtitle: string;
   category: CardCategory;
-  year: number;
+  year?: number;
   status: CardStatus;
-  grade: string;
+  grade?: string;
+  serial?: string;
+  tags?: string[];
+  notes?: string[];
   frontImage: string;
-  gallery: string[];
   description: string;
-  notes: string[];
   updatedAt: string;
   featuredRank?: number;
 }

@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { siteConfig } from '@/config/site';
-import { categoryConfig } from '@/config/categories';
+import { categoriesConfig } from '@/config/categories';
 
 export function Footer() {
   return (
-    <footer className="mt-16 border-t border-white/10 bg-[#131313]/80 backdrop-blur-xl">
+    <footer className="mt-16 border-t border-white/10 bg-[#131313]/85 backdrop-blur-xl">
       <div className="mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-gold">Brand</p>
           <h3 className="mt-3 text-lg font-semibold tracking-[0.12em]">KROBA CARDS</h3>
-          <p className="mt-3 text-sm text-stone-400">Curated grails with premium presentation and collector-first service.</p>
+          <p className="mt-3 text-sm text-stone-400">Curated premium cards presented with collector-first detail and care.</p>
         </div>
 
         <div>
@@ -28,7 +28,7 @@ export function Footer() {
         <div>
           <p className="text-xs uppercase tracking-[0.24em] text-gold">Categories</p>
           <ul className="mt-3 space-y-2 text-sm text-stone-300">
-            {categoryConfig.map((category) => (
+            {categoriesConfig.map((category) => (
               <li key={category.slug}>
                 <Link href={`/collections/${category.slug}`} className="hover:text-white">
                   {category.label}

@@ -8,7 +8,7 @@ import { hoverLift } from '@/lib/motion';
 interface CategoryItem {
   slug: string;
   label: string;
-  image?: string;
+  imageUrl?: string;
   description?: string;
   count: number;
 }
@@ -24,8 +24,8 @@ export function CategorySection({ categories }: { categories: CategoryItem[] }) 
           <motion.div key={cat.slug} initial="rest" animate="rest" whileHover={reduce ? 'rest' : 'hover'} whileTap={reduce ? 'rest' : 'tap'} variants={hoverLift}>
             <Link href={`/collections/${cat.slug}`} className="group relative block overflow-hidden rounded-2xl border border-white/10 active:scale-[0.99]">
               <div className="absolute inset-0">
-                {cat.image ? (
-                  <ImageWithFallback src={cat.image} alt={cat.label} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
+                {cat.imageUrl ? (
+                  <ImageWithFallback src={cat.imageUrl} alt={cat.label} className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.03]" />
                 ) : (
                   <div className="h-full w-full bg-gradient-to-br from-[#302718] via-[#1e1e1e] to-[#141414]" />
                 )}

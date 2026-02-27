@@ -28,6 +28,11 @@ Exported site is generated into:
 
 ## Featured cards setup
 
+## Logo setup
+
+Upload your logo to `/public/KC_logo.png` (case-sensitive).
+
+
 Featured cards are controlled by `featuredRank` in `data/cards.json`:
 
 - Set `featuredRank` from `1` to `8`.

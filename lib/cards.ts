@@ -1,27 +1,24 @@
 import cardsData from '@/data/cards.json';
-import { categoryConfig } from '@/config/categories';
+import { categoriesConfig } from '@/config/categories';
 import { Card, CardCategory, CardFilters, CardStatus } from '@/lib/types';
 
-const categorySet = new Set<CardCategory>(['f1', 'soccer', 'baseball', 'entertainment', 'basketball', 'showcase']);
+const categorySet = new Set<CardCategory>(['pokemon', 'soccer', 'nfl', 'one-piece', 'misc-sports', 'marvel']);
 
 type RawCard = Omit<Card, 'status' | 'category'> & { status?: string; category?: string };
 
 function normalizeStatus(status?: string): CardStatus {
-  const value = (status ?? '').toLowerCase().trim();
-  if (value === 'sold') return 'sold';
-  // showcase or unknown values normalize to available
-  return 'available';
+  return (status ?? '').toLowerCase() === 'sold' ? 'sold' : 'available';
 }
 
 function normalizeCategory(category?: string): CardCategory {
-  const value = (category ?? '').toLowerCase().trim();
-  return categorySet.has(value as CardCategory) ? (value as CardCategory) : 'showcase';
+  const value = (category ?? '').toLowerCase().trim() as CardCategory;
+  return categorySet.has(value) ? value : 'misc-sports';
 }
 
 const cards: Card[] = (cardsData as RawCard[]).map((card) => ({
   ...card,
-  category: normalizeCategory(card.category),
-  status: normalizeStatus(card.status)
+  status: normalizeStatus(card.status),
+  category: normalizeCategory(card.category)
 }));
 
 export function getCards() {
@@ -34,18 +31,18 @@ export function getCardById(id: string) {
 
 export function getFeaturedCards() {
   const ranked = [...cards]
-    .filter((card) => typeof card.featuredRank === 'number' && card.featuredRank >= 1 && card.featuredRank <= 8)
+    .filter((card) => typeof card.featuredRank === 'number' && card.featuredRank! >= 1 && card.featuredRank! <= 8)
     .sort((a, b) => (a.featuredRank ?? 99) - (b.featuredRank ?? 99))
     .slice(0, 8);
 
   if (ranked.length === 8) return ranked;
 
-  const fill = [...cards]
-    .filter((card) => card.status === 'available' && !ranked.some((item) => item.id === card.id))
+  const fallback = [...cards]
+    .filter((card) => card.status === 'available' && !ranked.some((rankedCard) => rankedCard.id === card.id))
     .sort((a, b) => +new Date(b.updatedAt) - +new Date(a.updatedAt))
     .slice(0, 8 - ranked.length);
 
-  return [...ranked, ...fill].slice(0, 8);
+  return [...ranked, ...fallback];
 }
 
 export function getNewestCards() {
@@ -53,7 +50,7 @@ export function getNewestCards() {
 }
 
 export function getGradeList() {
-  return [...new Set(cards.map((card) => card.grade))].sort((a, b) => a.localeCompare(b));
+  return [...new Set(cards.map((card) => card.grade).filter(Boolean) as string[])].sort((a, b) => a.localeCompare(b));
 }
 
 export function filterCards(input: Card[], filters: CardFilters) {
@@ -70,7 +67,7 @@ export function filterCards(input: Card[], filters: CardFilters) {
 }
 
 export function getCategoryCounts() {
-  return categoryConfig.map((category) => ({
+  return categoriesConfig.map((category) => ({
     ...category,
     count: cards.filter((card) => card.category === category.slug).length
   }));

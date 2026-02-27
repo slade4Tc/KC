@@ -33,7 +33,7 @@ function FeaturedRowCard({ card }: { card: Card }) {
           <motion.div variants={hoverImageZoom} className="h-full w-full">
             <ImageWithFallback src={card.frontImage} alt={card.name} className="h-full w-full object-cover" />
           </motion.div>
-          <span className={`absolute right-2 top-2 rounded-full border px-2 py-0.5 text-[11px] ${statusClass[card.status]}`}>{statusText[card.status]}</span>
+          <span className={`pointer-events-none absolute right-2 top-2 z-20 rounded-full border bg-[#121212]/70 px-2 py-0.5 text-[11px] backdrop-blur ${statusClass[card.status]}`}>{statusText[card.status]}</span>
         </div>
         <div className="p-3">
           <p className="truncate text-sm font-medium text-stone-100">{card.name}</p>

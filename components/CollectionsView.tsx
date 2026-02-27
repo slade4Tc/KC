@@ -1,16 +1,18 @@
 'use client';
 
 import { useMemo, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { CardGrid } from '@/components/CardGrid';
 import { FilterState, FiltersBar } from '@/components/FiltersBar';
 import { MobileFilterSheet } from '@/components/MobileFilterSheet';
-import { categoryConfig } from '@/config/categories';
+import { categoriesConfig } from '@/config/categories';
 import { filterCards, getCards, getGradeList } from '@/lib/cards';
 
 interface CollectionsViewProps {
   title: string;
   description: string;
   initialFilters: FilterState;
+  clearCategoryHref?: string;
 }
 
 const blankFilters: FilterState = {
@@ -21,7 +23,8 @@ const blankFilters: FilterState = {
   sort: 'newest'
 };
 
-export function CollectionsView({ title, description, initialFilters }: CollectionsViewProps) {
+export function CollectionsView({ title, description, initialFilters, clearCategoryHref }: CollectionsViewProps) {
+  const router = useRouter();
   const [filters, setFilters] = useState<FilterState>(initialFilters);
   const [open, setOpen] = useState(false);
 
@@ -38,6 +41,10 @@ export function CollectionsView({ title, description, initialFilters }: Collecti
   ].filter(Boolean) as { key: keyof FilterState; label: string }[];
 
   const clearFilter = (key: keyof FilterState) => {
+    if (key === 'category' && clearCategoryHref) {
+      router.push(clearCategoryHref);
+      return;
+    }
     setFilters((prev) => ({ ...prev, [key]: blankFilters[key] }));
   };
 
@@ -47,7 +54,7 @@ export function CollectionsView({ title, description, initialFilters }: Collecti
       <p className="mb-5 text-stone-400">{description}</p>
       <FiltersBar
         filters={filters}
-        categories={categoryConfig.map((item) => ({ slug: item.slug, label: item.label }))}
+        categories={categoriesConfig.map((item) => ({ slug: item.slug, label: item.label }))}
         grades={grades}
         onChange={setFilters}
         onOpenMobile={() => setOpen(true)}
@@ -69,7 +76,7 @@ export function CollectionsView({ title, description, initialFilters }: Collecti
       <CardGrid cards={filtered} />
       <MobileFilterSheet
         open={open}
-        categories={categoryConfig.map((item) => ({ slug: item.slug, label: item.label }))}
+        categories={categoriesConfig.map((item) => ({ slug: item.slug, label: item.label }))}
         grades={grades}
         value={filters}
         onClose={() => setOpen(false)}

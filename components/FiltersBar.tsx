@@ -70,7 +70,7 @@ export function FiltersBar({ filters, categories, grades, onChange, onOpenMobile
           className="rounded-xl border border-white/10 bg-[#161616] px-3 py-2 text-sm"
         >
           <option value="newest">Newest</option>
-          <option value="title-asc">Title</option>
+          <option value="title-asc">Title A-Z</option>
         </select>
       </div>
     </>

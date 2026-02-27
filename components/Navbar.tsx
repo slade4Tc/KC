@@ -20,7 +20,10 @@ export function Navbar() {
     <header className={`fixed inset-x-0 top-0 z-30 transition-all ${scrolled ? 'border-b border-white/10 bg-[#141414]/80 backdrop-blur-xl' : 'bg-transparent'}`}>
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3">
-          <img src="/brand/kc-logo.svg" alt="KC" className="h-8 w-8 rounded-full object-cover sm:h-9 sm:w-9" />
+          <span className="flex h-8 w-8 items-center justify-center rounded-full border border-gold/50 bg-[#181818] sm:h-9 sm:w-9">
+            {/* Upload your logo to /public/KC_logo.png (case-sensitive). */}
+            <img src="/KC_logo.png" alt="KC" className="h-6 w-6 object-contain sm:h-7 sm:w-7" />
+          </span>
           <span className="text-sm font-semibold tracking-[0.24em] text-gold">KROBA CARDS</span>
         </Link>
         <nav className="hidden items-center gap-7 md:flex">

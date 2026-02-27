@@ -1,10 +1,40 @@
-import categories from '@/data/categories.json';
+export const categoriesConfig = [
+  {
+    slug: 'pokemon',
+    label: 'Pokemon',
+    imageUrl: 'https://res.cloudinary.com/demo/image/upload/v1690003001/categories/pokemon.jpg',
+    description: 'Vintage and modern grails.'
+  },
+  {
+    slug: 'soccer',
+    label: 'Soccer',
+    imageUrl: 'https://res.cloudinary.com/demo/image/upload/v1690003002/categories/soccer.jpg',
+    description: 'Club icons and global stars.'
+  },
+  {
+    slug: 'nfl',
+    label: 'NFL',
+    imageUrl: 'https://res.cloudinary.com/demo/image/upload/v1690003003/categories/nfl.jpg',
+    description: 'Rookies, autos, and legends.'
+  },
+  {
+    slug: 'one-piece',
+    label: 'One Piece',
+    imageUrl: 'https://res.cloudinary.com/demo/image/upload/v1690003004/categories/one-piece.jpg',
+    description: 'Top chase parallels and manga hits.'
+  },
+  {
+    slug: 'misc-sports',
+    label: 'Misc/Sports',
+    imageUrl: 'https://res.cloudinary.com/demo/image/upload/v1690003005/categories/misc-sports.jpg',
+    description: 'F1, baseball, basketball, and more.'
+  },
+  {
+    slug: 'marvel',
+    label: 'Marvel',
+    imageUrl: 'https://res.cloudinary.com/demo/image/upload/v1690003006/categories/marvel.jpg',
+    description: 'Comic and cinematic signatures.'
+  }
+] as const;
 
-export const categoryConfig = categories as {
-  slug: 'f1' | 'soccer' | 'baseball' | 'entertainment' | 'basketball' | 'showcase';
-  label: string;
-  image?: string;
-  description?: string;
-}[];
-
-export type CategorySlug = (typeof categoryConfig)[number]['slug'];
+export type CategorySlug = (typeof categoriesConfig)[number]['slug'];

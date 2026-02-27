@@ -15,7 +15,7 @@ export function Hero() {
           Kroba Cards
         </motion.h1>
         <motion.p variants={fadeUp} className="max-w-2xl text-base leading-relaxed text-stone-300 sm:text-lg">
-          Curated grails for collectors who value rarity, provenance, and timeless presentation. Explore modern icons, vintage legends, and private showcase inventory.
+          Curated grails for collectors who value rarity, provenance, and timeless presentation. Explore premium releases across Pokemon, sports, anime, and Marvel categories.
         </motion.p>
         <motion.div variants={fadeUp} className="flex flex-wrap gap-3 pt-4">
           <Link href="/collections" className="rounded-full bg-gold px-6 py-3 text-sm font-medium text-[#1c1810] shadow-glow transition hover:brightness-105">
