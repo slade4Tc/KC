@@ -1,0 +1,190 @@
+[
+  {
+    "id": "KC-001",
+    "slug": "verstappen-chrome-sapphire",
+    "name": "Max Verstappen",
+    "subtitle": "Chrome Sapphire Signature",
+    "category": "f1",
+    "year": 2024,
+    "status": "available",
+    "grade": "PSA 10",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002001/cards/f1-1.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002001/cards/f1-1.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002002/cards/f1-2.jpg"
+    ],
+    "description": "Championship-era signature with sharp chrome finish.",
+    "notes": ["Serial verified", "Archive sleeve", "Vault-kept"],
+    "updatedAt": "2026-02-14T10:00:00.000Z",
+    "featuredRank": 1
+  },
+  {
+    "id": "KC-002",
+    "slug": "messi-heritage-auto",
+    "name": "Lionel Messi",
+    "subtitle": "Heritage On-card Auto",
+    "category": "soccer",
+    "year": 2023,
+    "status": "available",
+    "grade": "BGS 9.5",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002003/cards/soccer-1.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002003/cards/soccer-1.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002004/cards/soccer-2.jpg"
+    ],
+    "description": "Museum-caliber piece with exceptional eye appeal.",
+    "notes": ["Subgrades strong", "Display selected"],
+    "updatedAt": "2026-02-20T12:30:00.000Z",
+    "featuredRank": 2
+  },
+  {
+    "id": "KC-003",
+    "slug": "ohtani-dual-era",
+    "name": "Shohei Ohtani",
+    "subtitle": "Dual Era Parallel",
+    "category": "baseball",
+    "year": 2025,
+    "status": "sold",
+    "grade": "PSA 9",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002005/cards/baseball-1.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002005/cards/baseball-1.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002006/cards/baseball-2.jpg"
+    ],
+    "description": "High-demand release from a defining modern run.",
+    "notes": ["Archived listing", "Private placement"],
+    "updatedAt": "2026-01-19T11:10:00.000Z",
+    "featuredRank": 3
+  },
+  {
+    "id": "KC-004",
+    "slug": "jordan-holo-legacy",
+    "name": "Michael Jordan",
+    "subtitle": "Legacy Holo Insert",
+    "category": "basketball",
+    "year": 1998,
+    "status": "available",
+    "grade": "SGC 8",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002007/cards/basketball-1.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002007/cards/basketball-1.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002008/cards/basketball-2.jpg"
+    ],
+    "description": "Classic insert from one of the most iconic eras.",
+    "notes": ["Surface clean", "Strong gloss"],
+    "updatedAt": "2026-02-11T09:45:00.000Z",
+    "featuredRank": 4
+  },
+  {
+    "id": "KC-005",
+    "slug": "hamilton-carbon-foil",
+    "name": "Lewis Hamilton",
+    "subtitle": "Carbon Foil Parallel",
+    "category": "f1",
+    "year": 2024,
+    "status": "available",
+    "grade": "PSA 10",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002009/cards/f1-3.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002009/cards/f1-3.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002010/cards/f1-4.jpg"
+    ],
+    "description": "Carbon finish and clean centering make this a display favorite.",
+    "notes": ["Case mint", "Current showcase wall"],
+    "updatedAt": "2026-02-24T09:00:00.000Z",
+    "featuredRank": 5
+  },
+  {
+    "id": "KC-006",
+    "slug": "ronaldo-emerald-refractor",
+    "name": "Cristiano Ronaldo",
+    "subtitle": "Emerald Refractor",
+    "category": "soccer",
+    "year": 2022,
+    "status": "available",
+    "grade": "PSA 10",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002011/cards/soccer-3.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002011/cards/soccer-3.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002012/cards/soccer-4.jpg"
+    ],
+    "description": "Low-pop refractor with rich color and sharp edges.",
+    "notes": ["Centering verified", "Fresh slab"],
+    "updatedAt": "2026-02-26T11:15:00.000Z",
+    "featuredRank": 6
+  },
+  {
+    "id": "KC-007",
+    "slug": "rookie-soto-chrome",
+    "name": "Juan Soto",
+    "subtitle": "Rookie Chrome Variation",
+    "category": "baseball",
+    "year": 2018,
+    "status": "available",
+    "grade": "BGS 9",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002013/cards/baseball-3.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002013/cards/baseball-3.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002014/cards/baseball-4.jpg"
+    ],
+    "description": "Modern rookie staple with outstanding print quality.",
+    "notes": ["No edge lift", "Archive tracked"],
+    "updatedAt": "2026-02-21T17:05:00.000Z",
+    "featuredRank": 7
+  },
+  {
+    "id": "KC-008",
+    "slug": "comic-con-cinematic-signed",
+    "name": "Cinematic Legends",
+    "subtitle": "Convention Signature Edition",
+    "category": "entertainment",
+    "year": 2025,
+    "status": "available",
+    "grade": "PSA 9",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002015/cards/ent-1.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002015/cards/ent-1.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002016/cards/ent-2.jpg"
+    ],
+    "description": "A centerpiece crossover from the entertainment vault.",
+    "notes": ["Authenticated event release", "Display-only rotation"],
+    "updatedAt": "2026-02-27T07:25:00.000Z",
+    "featuredRank": 8
+  },
+  {
+    "id": "KC-009",
+    "slug": "kobe-black-foil",
+    "name": "Kobe Bryant",
+    "subtitle": "Black Foil Legacy",
+    "category": "basketball",
+    "year": 2001,
+    "status": "sold",
+    "grade": "PSA 8",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002017/cards/basketball-3.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002017/cards/basketball-3.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002018/cards/basketball-4.jpg"
+    ],
+    "description": "Coveted foil treatment and iconic player heritage.",
+    "notes": ["Condition report logged", "Fulfilled via inquiry"],
+    "updatedAt": "2026-02-05T13:50:00.000Z"
+  },
+  {
+    "id": "KC-010",
+    "slug": "showcase-private-select",
+    "name": "Private Select",
+    "subtitle": "Vault Showcase Exclusive",
+    "category": "showcase",
+    "year": 2026,
+    "status": "available",
+    "grade": "BGS 10",
+    "frontImage": "https://res.cloudinary.com/demo/image/upload/v1690002019/cards/showcase-1.jpg",
+    "gallery": [
+      "https://res.cloudinary.com/demo/image/upload/v1690002019/cards/showcase-1.jpg",
+      "https://res.cloudinary.com/demo/image/upload/v1690002020/cards/showcase-2.jpg"
+    ],
+    "description": "Reserved showcase piece with concierge inquiry access.",
+    "notes": ["Display archive", "Priority waitlist"],
+    "updatedAt": "2026-02-28T19:40:00.000Z"
+  }
+]
