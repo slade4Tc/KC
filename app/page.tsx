@@ -5,17 +5,17 @@ import { Hero } from '@/components/Hero';
 import { FeaturedSection } from '@/components/FeaturedSection';
 import { CategorySection } from '@/components/CategorySection';
 import { fadeUp } from '@/lib/motion';
-import { getCategories, getFeaturedCards, getNewestCards } from '@/lib/cards';
+import { getCategoryCounts, getFeaturedCards, getNewestCards } from '@/lib/cards';
 
 export default function HomePage() {
   const featured = getFeaturedCards();
-  const categories = getCategories();
+  const categories = getCategoryCounts();
   const newest = getNewestCards();
 
   return (
     <>
       <Hero />
-      <FeaturedSection cards={featured} title="Featured Grails" />
+      <FeaturedSection cards={featured} title="Featured Grails" panel />
       <CategorySection categories={categories} />
 
       <section className="py-14 sm:py-16">
@@ -36,19 +36,13 @@ export default function HomePage() {
 
       <FeaturedSection cards={newest} title="New Additions" />
 
-      <motion.section
-        className="py-16"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.35 }}
-        variants={fadeUp}
-      >
+      <motion.section className="py-16" initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.35 }} variants={fadeUp}>
         <div className="grid gap-6 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:grid-cols-2 md:p-10">
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.24em] text-gold">Collector Story</p>
             <h2 className="text-3xl font-semibold">Built by collectors, for collectors.</h2>
             <p className="text-sm leading-relaxed text-stone-300">
-              KC Vault began as a private archive and evolved into a boutique destination for high-end trading cards. Our approach centers on transparent provenance, careful curation, and timeless visual presentation.
+              Kroba Cards began as a private archive and evolved into a boutique destination for high-end trading cards. Our approach centers on transparent provenance, careful curation, and timeless visual presentation.
             </p>
           </div>
           <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-[#2a2418] via-[#1f1f1f] to-[#141414] p-8">

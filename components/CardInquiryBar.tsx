@@ -6,7 +6,7 @@ import { siteConfig } from '@/config/site';
 export function CardInquiryBar({ cardId, cardName }: { cardId: string; cardName: string }) {
   const [copied, setCopied] = useState(false);
 
-  const message = `Inquiry for ${cardName} (${cardId}) from KC Vault.`;
+  const message = `Inquiry for ${cardName} (${cardId}) from Kroba Cards.`;
 
   const copy = async () => {
     await navigator.clipboard.writeText(message);

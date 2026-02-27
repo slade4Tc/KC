@@ -29,7 +29,7 @@ export function MobileDrawer({ open, onClose }: MobileDrawerProps) {
             transition={{ type: 'spring', stiffness: 280, damping: 30 }}
           >
             <div className="mb-8 flex items-center justify-between">
-              <span className="text-lg font-semibold tracking-[0.24em] text-gold">KC VAULT</span>
+              <span className="text-lg font-semibold tracking-[0.24em] text-gold">KROBA CARDS</span>
               <button onClick={onClose} className="text-2xl text-stone-200">
                 ×
               </button>

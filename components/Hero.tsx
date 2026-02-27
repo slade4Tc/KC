@@ -12,7 +12,7 @@ export function Hero() {
           Boutique Collector Gallery
         </motion.p>
         <motion.h1 variants={fadeUp} className="max-w-5xl text-5xl font-semibold leading-[0.96] text-stone-100 sm:text-7xl lg:text-8xl">
-          KC Vault
+          Kroba Cards
         </motion.h1>
         <motion.p variants={fadeUp} className="max-w-2xl text-base leading-relaxed text-stone-300 sm:text-lg">
           Curated grails for collectors who value rarity, provenance, and timeless presentation. Explore modern icons, vintage legends, and private showcase inventory.

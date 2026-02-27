@@ -1,17 +1,28 @@
-import { CardGrid } from '@/components/CardGrid';
-import { getCardsByCategorySlug, getCategories } from '@/lib/cards';
+import { notFound } from 'next/navigation';
+import { CollectionsView } from '@/components/CollectionsView';
+import { FilterState } from '@/components/FiltersBar';
+import { categoryConfig } from '@/config/categories';
 
 export function generateStaticParams() {
-  return getCategories().map((c) => ({ slug: c.slug }));
+  return categoryConfig.map((c) => ({ slug: c.slug }));
+}
+
+function getInitialFilters(slug: string): FilterState {
+  if (slug === 'showcase') {
+    return { search: '', category: 'all', status: 'showcase', grade: 'all', sort: 'newest' };
+  }
+  return { search: '', category: slug as FilterState['category'], status: 'all', grade: 'all', sort: 'newest' };
 }
 
 export default function CategoryPage({ params }: { params: { slug: string } }) {
-  const cards = getCardsByCategorySlug(params.slug);
+  const selected = categoryConfig.find((item) => item.slug === params.slug);
+  if (!selected) notFound();
 
   return (
-    <section className="py-8 sm:py-12">
-      <h1 className="mb-8 text-4xl font-semibold capitalize">{params.slug.replace(/-/g, ' ')}</h1>
-      <CardGrid cards={cards} />
-    </section>
+    <CollectionsView
+      title={selected.label}
+      description="Refine this collection using search, category, status, grade, and sorting."
+      initialFilters={getInitialFilters(params.slug)}
+    />
   );
 }

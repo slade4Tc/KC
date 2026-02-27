@@ -32,7 +32,6 @@ export default function CardDetailPage({ params }: { params: { id: string } }) {
           <p className="text-xs uppercase tracking-[0.24em] text-stone-400">{card.id}</p>
           <h1 className="text-4xl font-semibold">{card.name}</h1>
           <p className="text-stone-300">{card.subtitle}</p>
-          <p className="text-2xl text-gold">{card.price}</p>
           <p className="text-sm leading-relaxed text-stone-300">{card.description}</p>
 
           <details className="rounded-xl border border-white/10 p-4" open>

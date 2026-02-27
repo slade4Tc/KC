@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: 'KROBA CARDS',
+  name: 'Kroba Cards',
   description: 'Boutique Collector Gallery',
-  email: 'vault@kcgallery.com',
-  instagram: 'https://instagram.com/kcvault.gallery',
+  email: 'hello@krobacards.com',
+  instagram: 'https://instagram.com/krobacards',
   nav: [
     { href: '/', label: 'Home' },
     { href: '/collections', label: 'Collections' },
