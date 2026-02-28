@@ -15,23 +15,20 @@ export default function HomePage() {
   const newest = getNewestCards();
   const reduce = useReducedMotion();
 
-  // IMPORTANT: desktop detection should be correct on first client render
-  const [isDesktop, setIsDesktop] = useState(() => {
-    if (typeof window === 'undefined') return false;
-    return window.matchMedia('(min-width: 768px)').matches;
-  });
+  // We must wait for mount to reliably know desktop vs mobile
+  const [mounted, setMounted] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     const mq = window.matchMedia('(min-width: 768px)');
     const update = () => setIsDesktop(mq.matches);
     update();
+
     mq.addEventListener('change', update);
     return () => mq.removeEventListener('change', update);
   }, []);
-
-  // After the scroll animation finishes (desktop), we swap each card to a static <article>
-  // so text never stays blurred.
-  const [careSettled, setCareSettled] = useState<Record<string, boolean>>({});
 
   const careCards = [
     { title: 'Grading', desc: 'Every card is verified with matching serials and grading company records.' },
@@ -39,28 +36,30 @@ export default function HomePage() {
     { title: 'Shipping', desc: 'Double-boxed insured dispatch with signature confirmation worldwide.' }
   ] as const;
 
-  // Scroll-trigger “build up from sides” (desktop) / gentle fade-up (mobile)
+  // After animation finishes (desktop), swap to plain <article> to guarantee sharp text
+  const [careSettled, setCareSettled] = useState<Record<string, boolean>>({});
+
   const careItem = useMemo(() => {
     return {
       hidden: (i: number) => {
         if (reduce) return { opacity: 0, y: 10 };
 
-        // Mobile stays simple (already perfect for you)
+        // MOBILE: keep your perfect version (fade up)
         if (!isDesktop) return { opacity: 0, y: 16 };
 
-        // Desktop comes clearly from outside
-        const x = i === 0 ? -240 : i === 2 ? 240 : 0;
-        return { opacity: 0, y: 18, x };
+        // DESKTOP: come from outside (sides)
+        const x = i === 0 ? -220 : i === 2 ? 220 : 0;
+        return { opacity: 0, y: 10, x };
       },
       show: (i: number) => {
-        if (reduce) return { opacity: 1, y: 0, x: 0, transition: { duration: 0.3 } };
+        if (reduce) return { opacity: 1, x: 0, y: 0, transition: { duration: 0.25 } };
 
         return {
           opacity: 1,
-          y: 0,
           x: 0,
+          y: 0,
           transition: {
-            duration: 0.7,
+            duration: 0.65,
             ease: [0.22, 1, 0.36, 1],
             delay: i * 0.08
           }
@@ -83,7 +82,7 @@ export default function HomePage() {
           {careCards.map((c, i) => {
             const settled = !!careSettled[c.title];
 
-            // Once settled, render a plain <article> (no transform layer => no blur)
+            // After settle (desktop), render plain to avoid any lingering blur artifacts
             if (settled) {
               return (
                 <article key={c.title} className="glass rounded-2xl p-6 transition-colors hover:border-gold/35">
@@ -99,20 +98,26 @@ export default function HomePage() {
                 className="glass rounded-2xl p-6 transition-colors hover:border-gold/35"
                 custom={i}
                 variants={careItem}
-                initial="hidden"
+                // IMPORTANT:
+                // Before mount we render as "show" (no wrong animation).
+                // After mount we enable the correct desktop/mobile entrance.
+                initial={mounted ? 'hidden' : 'show'}
                 whileInView="show"
                 viewport={{ once: true, amount: 0.45, margin: '0px 0px -10% 0px' }}
                 whileHover={reduce ? undefined : { y: -4 }}
-                // When it enters view, schedule a "settle" after the animation finishes
+                style={{
+                  willChange: 'transform, opacity',
+                  transform: 'translateZ(0)' // helps crisp rendering during motion
+                }}
                 onViewportEnter={() => {
-                  // Only needed on desktop (mobile is already perfect)
-                  if (!isDesktop) return;
-                  // duration (0.7) + max delay (0.16) ~ 860ms
+                  // Only do the "settle swap" on DESKTOP (mobile already perfect)
+                  if (!mounted || !isDesktop) return;
+
+                  // duration (0.65) + max delay (0.16) => ~0.81s, give a bit more
                   window.setTimeout(() => {
                     setCareSettled((s) => ({ ...s, [c.title]: true }));
                   }, 900);
                 }}
-                style={{ willChange: 'transform, opacity' }}
               >
                 <h3 className="mb-3 text-lg font-medium text-stone-100">{c.title}</h3>
                 <p className="text-sm leading-relaxed text-stone-300">{c.desc}</p>
