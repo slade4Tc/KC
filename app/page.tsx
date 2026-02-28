@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Hero } from '@/components/Hero';
 import { FeaturedSection } from '@/components/FeaturedSection';
@@ -15,58 +14,39 @@ export default function HomePage() {
   const newest = getNewestCards();
   const reduce = useReducedMotion();
 
-  // We must wait for mount to reliably know desktop vs mobile
-  const [mounted, setMounted] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-
-    const mq = window.matchMedia('(min-width: 768px)');
-    const update = () => setIsDesktop(mq.matches);
-    update();
-
-    mq.addEventListener('change', update);
-    return () => mq.removeEventListener('change', update);
-  }, []);
-
   const careCards = [
     { title: 'Grading', desc: 'Every card is verified with matching serials and grading company records.' },
     { title: 'Storage', desc: 'Humidity-controlled, UV-safe handling from archive intake to shipment.' },
     { title: 'Shipping', desc: 'Double-boxed insured dispatch with signature confirmation worldwide.' }
   ] as const;
 
-  // After animation finishes (desktop), swap to plain <article> to guarantee sharp text
-  const [careSettled, setCareSettled] = useState<Record<string, boolean>>({});
+  // Scroll-trigger “build up from sides” (SAME for mobile + desktop)
+  // NOTE: No blur anywhere (prevents the “stuck blurred” issue).
+  const careItem = {
+    hidden: (i: number) => {
+      if (reduce) return { opacity: 0, y: 10 };
 
-  const careItem = useMemo(() => {
-    return {
-      hidden: (i: number) => {
-        if (reduce) return { opacity: 0, y: 10 };
+      // Left card from left, middle from bottom, right from right
+      const x = i === 0 ? -90 : i === 2 ? 90 : 0;
+      const y = i === 1 ? 22 : 10;
 
-        // MOBILE: keep your perfect version (fade up)
-        if (!isDesktop) return { opacity: 0, y: 16 };
+      return { opacity: 0, x, y };
+    },
+    show: (i: number) => {
+      if (reduce) return { opacity: 1, x: 0, y: 0, transition: { duration: 0.25 } };
 
-        // DESKTOP: come from outside (sides)
-        const x = i === 0 ? -220 : i === 2 ? 220 : 0;
-        return { opacity: 0, y: 10, x };
-      },
-      show: (i: number) => {
-        if (reduce) return { opacity: 1, x: 0, y: 0, transition: { duration: 0.25 } };
-
-        return {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          transition: {
-            duration: 0.65,
-            ease: [0.22, 1, 0.36, 1],
-            delay: i * 0.08
-          }
-        };
-      }
-    };
-  }, [reduce, isDesktop]);
+      return {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        transition: {
+          duration: 0.7,
+          ease: [0.22, 1, 0.36, 1],
+          delay: i * 0.08
+        }
+      };
+    }
+  };
 
   return (
     <>
@@ -79,51 +59,25 @@ export default function HomePage() {
         <h2 className="mb-7 text-2xl font-semibold sm:text-3xl">Authenticity & Care</h2>
 
         <div className="grid gap-4 md:grid-cols-3">
-          {careCards.map((c, i) => {
-            const settled = !!careSettled[c.title];
-
-            // After settle (desktop), render plain to avoid any lingering blur artifacts
-            if (settled) {
-              return (
-                <article key={c.title} className="glass rounded-2xl p-6 transition-colors hover:border-gold/35">
-                  <h3 className="mb-3 text-lg font-medium text-stone-100">{c.title}</h3>
-                  <p className="text-sm leading-relaxed text-stone-300">{c.desc}</p>
-                </article>
-              );
-            }
-
-            return (
-              <motion.article
-                key={c.title}
-                className="glass rounded-2xl p-6 transition-colors hover:border-gold/35"
-                custom={i}
-                variants={careItem}
-                // IMPORTANT:
-                // Before mount we render as "show" (no wrong animation).
-                // After mount we enable the correct desktop/mobile entrance.
-                initial={mounted ? 'hidden' : 'show'}
-                whileInView="show"
-                viewport={{ once: true, amount: 0.45, margin: '0px 0px -10% 0px' }}
-                whileHover={reduce ? undefined : { y: -4 }}
-                style={{
-                  willChange: 'transform, opacity',
-                  transform: 'translateZ(0)' // helps crisp rendering during motion
-                }}
-                onViewportEnter={() => {
-                  // Only do the "settle swap" on DESKTOP (mobile already perfect)
-                  if (!mounted || !isDesktop) return;
-
-                  // duration (0.65) + max delay (0.16) => ~0.81s, give a bit more
-                  window.setTimeout(() => {
-                    setCareSettled((s) => ({ ...s, [c.title]: true }));
-                  }, 900);
-                }}
-              >
-                <h3 className="mb-3 text-lg font-medium text-stone-100">{c.title}</h3>
-                <p className="text-sm leading-relaxed text-stone-300">{c.desc}</p>
-              </motion.article>
-            );
-          })}
+          {careCards.map((c, i) => (
+            <motion.article
+              key={c.title}
+              className="glass rounded-2xl p-6 transition-colors hover:border-gold/35"
+              custom={i}
+              variants={careItem}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.4, margin: '0px 0px -10% 0px' }}
+              whileHover={reduce ? undefined : { y: -4 }}
+              style={{
+                willChange: 'transform, opacity',
+                transform: 'translateZ(0)'
+              }}
+            >
+              <h3 className="mb-3 text-lg font-medium text-stone-100">{c.title}</h3>
+              <p className="text-sm leading-relaxed text-stone-300">{c.desc}</p>
+            </motion.article>
+          ))}
         </div>
       </section>
 
