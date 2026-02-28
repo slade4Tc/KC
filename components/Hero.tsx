@@ -9,7 +9,7 @@ export function Hero() {
     <section className="pb-24 pt-14 sm:pb-28 sm:pt-20">
       <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} className="space-y-6">
         <motion.p variants={fadeUp} className="text-sm uppercase tracking-[0.24em] text-stone-400">
-          Boutique Collector Gallery
+          Collector Gallery
         </motion.p>
         <motion.h1 variants={fadeUp} className="max-w-5xl text-5xl font-semibold leading-[0.96] text-stone-100 sm:text-7xl lg:text-8xl">
           Kroba Cards
