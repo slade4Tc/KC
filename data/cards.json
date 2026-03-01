@@ -11,7 +11,7 @@
     "serial": "PSA-47757821",
     "tags": ["Pokemon", "Vintage", "Grail", "Charizard", "Skyridge", "Holo", "e-Reader"],
     "notes": ["PSA GEM MT 10", "Iconic Skyridge holo", "Clean slab & label"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/charizard.png",
+    "frontImage": "Cards/Pokemon/charizard.webp",
     "description": "2003 Skyridge Charizard Holo, graded PSA 10 — a top-tier vintage grail.",
     "updatedAt": "2026-02-28T00:00:00.000Z",
     "featuredRank": 1
@@ -28,7 +28,7 @@
     "serial": "PSA-77577940",
     "tags": ["Pokemon", "Modern", "Evolving Skies", "Alt Art", "Secret Rare", "PSA 10", "Rayquaza", "VMAX"],
     "notes": ["PSA GEM MT 10", "Evolving Skies #218 Secret", "Top modern chase"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/rayquaza_vmax.png",
+    "frontImage": "Cards/Pokemon/rayquaza_vmax.webp",
     "description": "Rayquaza VMAX #218 (Evolving Skies Secret), graded PSA 10 — one of the top modern chases.",
     "updatedAt": "2026-02-28T00:00:00.000Z",
     "featuredRank": 2
@@ -45,7 +45,7 @@
     "serial": "PSA-117783810",
     "tags": ["Soccer", "LaLiga", "Adrenalyn XL", "Panini", "Autograph", "Premium", "PSA 10", "FC Barcelona"],
     "notes": ["PSA GEM MT 10", "Autógrafo Original Premium insert", "Top modern Barcelona chase"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/lamine_yamal_autografo.png",
+    "frontImage": "Cards/Soccer/lamine_yamal_autografo.webp",
     "description": "2023–24 Adrenalyn XL LaLiga Lamine Yamal Autógrafo Original Premium, graded PSA 10 — premium auto chase.",
     "updatedAt": "2026-02-28T00:00:00.000Z",
     "featuredRank": 3
@@ -62,7 +62,7 @@
     "serial": "PSA-99204157",
     "tags": ["Soccer", "LaLiga", "Megacracks", "Panini", "Rookie", "PSA 10", "FC Barcelona", "Ficha BIS"],
     "notes": ["PSA GEM MT 10", "Megacracks LaLiga 2023–24", "#108BIS variant"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/lamine_yamal_1.png",
+    "frontImage": "Cards/Soccer/lamine_yamal_1.webp",
     "description": "2023–24 Megacracks LaLiga Lamine Yamal #108BIS (Ficha BIS), graded PSA 10 — elite modern soccer grail.",
     "updatedAt": "2026-02-28T00:00:00.000Z",
     "featuredRank": 4
@@ -79,7 +79,7 @@
     "serial": "BGS-0018516930",
     "tags": ["NFL", "Rookie", "Kaboom", "Absolute", "BGS", "Vikings", "Insert", "Case Hit"],
     "notes": ["BGS 10 Pristine", "Subgrades: C 9.5 / E 10 / Co 10 / S 10", "Kaboom Vertical case hit"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/j_j_kaboom.png",
+    "frontImage": "Cards/NFL/j_j_kaboom.webp",
     "description": "2024 Absolute Kaboom! Vertical J.J. McCarthy RC, graded BGS 10 Pristine — premium case hit.",
     "updatedAt": "2026-02-28T00:00:00.000Z",
     "featuredRank": 5
@@ -96,7 +96,7 @@
     "serial": "PSA-63877019",
     "tags": ["Pokemon", "Japanese", "Promo", "Pikachu", "SM Promo", "Full Art", "PSA 10", "Pretend", "Team Skull"],
     "notes": ["PSA GEM MT 10", "JPN SM Promo #013", "Special Box P.G.P. promo"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/pikachu.png",
+    "frontImage": "Cards/Pokemon/pikachu.webp",
     "description": "2016 Japanese SM Promo #013 Pretend Team Skull Pikachu (Full Art), graded PSA 10 — iconic JPN promo.",
     "updatedAt": "2026-02-28T00:00:00.000Z",
     "featuredRank": 6
@@ -113,7 +113,7 @@
     "serial": "PSA-42440015",
     "tags": ["Pokemon", "Vintage", "Gold Star", "ex Deoxys", "Holo", "Rayquaza", "PSA", "Grail"],
     "notes": ["PSA NM 7", "Gold Star #107", "Legendary vintage chase"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/rayquaza.png",
+    "frontImage": "Cards/Pokemon/rayquaza.webp",
     "description": "2005 ex Deoxys Rayquaza Gold Star #107, graded PSA 7 — iconic vintage grail.",
     "updatedAt": "2026-02-28T00:00:00.000Z",
     "featuredRank": 7
@@ -147,7 +147,7 @@
     "serial": "PSA-95454873",
     "tags": ["Soccer", "LaLiga", "Select", "White Sparkle", "PSA 10", "FC Barcelona", "Modern", "Parallel"],
     "notes": ["PSA GEM MT 10", "Select LaLiga #136", "White Sparkle parallel"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/lamine_yamal_holo.png",
+    "frontImage": "Cards/Soccer/lamine_yamal_holo.webp",
     "description": "2023–24 Select LaLiga Lamine Yamal #136 White Sparkle, graded PSA 10 — premium modern parallel.",
     "updatedAt": "2026-02-28T00:00:00.000Z"
   },
@@ -163,7 +163,7 @@
     "serial": "PSA-123677350",
     "tags": ["NFL", "Rookie", "Prizm", "Gold Prizm", "Rookie Variation", "PSA 9", "Chargers", "Brenden Rice"],
     "notes": ["PSA MINT 9", "Rookie Variation Gold Prizm", "Los Angeles Chargers"],
-    "frontImage": "https://pub-81e8ad22dc1f4213a0c54798e94af7b1.r2.dev/brenden_rice.png",
+    "frontImage": "Cards/NFL/brenden_rice.webp",
     "description": "2024 Prizm Brenden Rice #7 Rookie Variation Gold Prizm RC, graded PSA 9 — premium modern rookie parallel.",
     "updatedAt": "2026-02-28T00:00:00.000Z"
   }
