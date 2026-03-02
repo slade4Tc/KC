@@ -98,7 +98,7 @@ export default function SplashGate({ children, ms = 4000 }: Props) {
                 <img
                   src={LOGO_SRC}
                   alt="Kroba Cards"
-                  className="h-14 w-14 rounded-xl border border-white/10 bg-black/30 p-1 shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
+                  className="h-16 w-16 sm:h-[72px] sm:w-[72px] rounded-2xl border border-white/10 bg-black/30 p-1.5 shadow-[0_12px_28px_rgba(0,0,0,0.45)]"
                   loading="eager"
                   decoding="async"
                 />
