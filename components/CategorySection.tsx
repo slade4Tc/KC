@@ -46,11 +46,8 @@ export function CategorySection({ categories }: { categories: CategoryItem[] }) 
                   <div className="h-full w-full bg-gradient-to-br from-[#302718] via-[#1e1e1e] to-[#141414]" />
                 )}
 
-                {/* Neutral readability overlay (NO gold shine by default) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
-
-                {/* Gold sheen (hover only) */}
-                {!reduce && <div className="kc-sheen" />}
+                {/* Classic overlay (as old version) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
               </div>
 
               <div className="relative flex min-h-[170px] flex-col justify-end p-6">
