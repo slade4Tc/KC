@@ -83,11 +83,3 @@ a {
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
-
-/* Small safety: never re-introduce the old bug rule.
-   DO NOT set position/z-index globally on div/header/main/etc. */
-
-
-   /* -------------------------
-   we at VScode finaly
--------------------------- */

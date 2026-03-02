@@ -123,10 +123,10 @@ export default function HomePage() {
                 reduce
                   ? undefined
                   : {
-                      delay: phase(i) * 0.18,
-                      duration: 0.8,
-                      ease: [0.22, 1, 0.36, 1]
-                    }
+                    delay: phase(i) * 0.18,
+                    duration: 0.8,
+                    ease: [0.22, 1, 0.36, 1]
+                  }
               }
               style={{ willChange: 'transform, opacity', transform: 'translateZ(0)' }}
               whileHover={reduce ? undefined : { y: -4 }}
