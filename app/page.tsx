@@ -48,14 +48,7 @@ export default function HomePage() {
    */
   const phase = (i: number) => (i === 1 ? 1 : 0);
 
-  /**
-   * KEY FIXES:
-   * 1) Keep your perfect MOBILE animation exactly.
-   * 2) Make DESKTOP truly come-from-sides.
-   * 3) If reduce-motion is ON on desktop, DO NOT fall back to small fade-up.
-   *    Still do side enter, just softer + faster.
-   * 4) NO blur filters at all (prevents stuck-blur).
-   */
+
   const careItem = {
     hidden: (i: number) => {
       const mobileX = i === 0 ? -90 : i === 2 ? 90 : 0;
@@ -123,7 +116,7 @@ export default function HomePage() {
                 reduce
                   ? undefined
                   : {
-                    delay: phase(i) * 0.18,
+                    delay: phase(i) * 0.28,
                     duration: 0.8,
                     ease: [0.22, 1, 0.36, 1]
                   }
@@ -144,7 +137,7 @@ export default function HomePage() {
         className="py-16"
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.35 }}
+        viewport={{ once: true, amount: 0.6 }}
         variants={fadeUp}
       >
         <div className="grid gap-6 rounded-3xl border border-white/10 bg-white/[0.03] p-6 md:grid-cols-2 md:p-10">
