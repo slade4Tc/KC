@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
   children: React.ReactNode;
@@ -9,15 +9,20 @@ type Props = {
 
 const KEY = 'kc_splash_shown_v1';
 
-export default function SplashGate({ children, ms = 2000 }: Props) {
+export default function SplashGate({ children, ms = 4000 }: Props) {
+  const ranOnce = useRef(false);
+
   const [mounted, setMounted] = useState(false);
   const [show, setShow] = useState(false);
   const [fade, setFade] = useState(false);
 
   useEffect(() => {
+    // ✅ Guard against React StrictMode double-invoking effects in dev
+    if (ranOnce.current) return;
+    ranOnce.current = true;
+
     setMounted(true);
 
-    // Show only once per session
     try {
       const already = sessionStorage.getItem(KEY);
       if (already === '1') {
@@ -27,7 +32,7 @@ export default function SplashGate({ children, ms = 2000 }: Props) {
       sessionStorage.setItem(KEY, '1');
       setShow(true);
     } catch {
-      // If storage is blocked, fallback to showing once (per mount)
+      // if storage blocked, still show once per mount
       setShow(true);
     }
   }, []);
@@ -48,7 +53,6 @@ export default function SplashGate({ children, ms = 2000 }: Props) {
     <>
       {children}
 
-      {/* Prevent hydration flash: don't render overlay until mounted */}
       {mounted && show && (
         <div
           aria-hidden="true"
