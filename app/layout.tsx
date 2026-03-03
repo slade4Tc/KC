@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 function BackgroundLayers() {
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10">
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-0">
       {/* Warm gold pools + vignette (same as your previous CSS) */}
       <div
         className="absolute inset-0"
@@ -37,7 +37,7 @@ function BackgroundLayers() {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="text-stone-100 bg-[#070606]">
+      <body className="relative isolate text-stone-100 bg-[#070606]">
         {/* Mobile-proof background (replaces body::before/after) */}
         <BackgroundLayers />
 
