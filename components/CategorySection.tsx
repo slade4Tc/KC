@@ -34,7 +34,7 @@ export function CategorySection({ categories }: { categories: CategoryItem[] }) 
             <Link
               href={`/collections/${cat.slug}`}
               className="group relative block overflow-hidden rounded-2xl border border-white/10 active:scale-[0.99]
-              h-[170px] sm:h-[200px] md:h-[260px] lg:h-[320px] xl:h-[360px]"
+              h-[170px] sm:h-[200px] md:h-[280px] lg:h-[360px] xl:h-[400px]"
             >
               <div className="absolute inset-0">
                 {cat.imageUrl ? (
